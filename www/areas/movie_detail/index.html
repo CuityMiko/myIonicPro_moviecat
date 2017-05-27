@@ -1,0 +1,44 @@
+<ion-view view-title="电影详情">
+  <ion-content class="scroll-content" lazy-scroll>
+    <div class="bar bar-header item-input-inset">
+      <a class="button button-icon icon ion-ios-arrow-back" href="javascript:window.history.back(-1);"></a>
+      <div class="title">
+        <strong>{{movie.title}}</strong>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img image-lazy-src="{{movie.directors[0].avatars.small}}" image-lazy-loader="lines">
+        <h2>{{movie.title}}
+          <span class="badge badge-assertive">{{movie.rating.average}}</span>
+        </h2>
+        <p>
+          <span>类型：</span>
+          <span>{{movie.genres.join('、')}}</span>
+          &nbsp;&nbsp;&nbsp;
+          <span>上映年份：</span>
+          <span>{{movie.year}}</span>
+        </p>
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" image-lazy-src="{{movie.images.large}}" image-lazy-loader="lines">
+        <p>
+          {{movie.summary}}
+        </p>
+        <p>
+          <span>导演：</span>
+          <span ng-repeat="director in movie.directors">
+            {{director.name}}{{!$last?'、':''}}
+          </span>
+        </p>
+        <p>
+          <span>主演：</span>
+          <span ng-repeat="cast in movie.casts">
+            {{cast.name}}{{!$last?'、':''}}
+          </span>
+        </p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

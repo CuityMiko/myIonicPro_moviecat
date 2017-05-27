@@ -2,7 +2,7 @@
  * 全局配置文件
  */
 angular.module("moviecatApp.global",[])
-  .constant("AppConfig",{
+  .constant("GlobalConfig",{
     pagesize:10,
 		city:'杭州',
 		listAPIurl:'http://api.douban.com/v2/movie/',

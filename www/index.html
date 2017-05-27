@@ -34,20 +34,36 @@
     <script src="cordova.js"></script>
 
     <!--第三方包js-->
-
+    <!--引导页swiper-->
+    <script src="lib/swiper/dist/js/swiper.js"></script>
+    <!--图片延迟加载-->
+    <script src="lib/ionic-image-lazy-load/ionic-image-lazy-load.js"></script>
     <!--全局js-->
     <script src="js/app.js"></script>
     <script src="js/config.js"></script>
     <script src="js/global.js"></script>
     <script src="js/routes.js"></script>
 
+    <!--自定义模块-->
+    <!--自定义指令-->
+    <!--自定义服务-->
+    <script src="services/jsonp.js"></script>
+
     <!--功能子模块-->
+    <!--引导页-->
+    <script src="areas/guidepage/service.js"></script>
+    <script src="areas/guidepage/controller.js"></script>
+    <script src="areas/guidepage/route.js"></script>
     <!--tabs-->
     <script src="areas/tabs/routes.js"></script>
     <!--电影列表-->
     <script src="areas/movie_lists/routes.js"></script>
     <script src="areas/movie_lists/controllers.js"></script>
     <script src="areas/movie_lists/services.js"></script>
+    <!--电影详情-->
+    <script src="areas/movie_detail/routes.js"></script>
+    <script src="areas/movie_detail/controllers.js"></script>
+    <script src="areas/movie_detail/services.js"></script>
   </head>
   <body ng-app="moviecatApp">
     <!--页面渲染都会放入该组件中-->

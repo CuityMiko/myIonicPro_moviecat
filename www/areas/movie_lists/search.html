@@ -1,0 +1,54 @@
+<ion-view id="divlist" view-title="电影列表">
+  <form ng-submit="search()">
+    <div id="divSearch" class="bar bar-header item-input-inset">
+      <a class="button button-icon icon ion-ios-arrow-back" href="javascript:window.history.back(-1);"></a>
+      <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="电影/导演/演员..." ng-model="content">
+      </label>
+    </div>
+  </form>
+  <div class="row" ng-show="isresult">
+    <span>{{title}}</span>
+  </div>
+  <ion-content class="scroll-content" lazy-scroll>
+    <!--ion-refresher组件要放在ion-content顶部-->
+    <ion-refresher
+      pulling-text="获取最新数据..."
+      refreshing-text="刷新完毕"
+      on-refresh="refreshMovieList()">
+    </ion-refresher>
+    <div class="list">
+        <a class="item item-thumbnail-left" ng-href="#/movie/detail/{{movie.id}}" ng-repeat="movie in movies">
+          <img image-lazy-src="{{movie.images.small}}" image-lazy-loader="lines">
+          <h2>{{movie.title}}</h2>
+          <p>
+            <span>类型：</span>
+            <span>{{movie.genres.join('、')}}</span>
+            &nbsp;&nbsp;&nbsp;
+            <span>上映年份：</span>
+            <span>{{movie.year}}</span>
+          </p>
+          <p>
+            <span>导演：</span>
+            <span ng-repeat="director in movie.directors">
+              {{director.name}}{{!$last?'、':''}}
+            </span>
+          </p>
+          <p>
+            <span>主演：</span>
+            <span ng-repeat="cast in movie.casts">
+              {{cast.name}}{{!$last?'、':''}}
+            </span>
+          </p>
+          <span class="badge badge-assertive">{{movie.rating.average}}</span>
+        </a>
+    </div>
+    <!--ion-infinite-scroll组件要放在ion-content底部-->
+    <ion-infinite-scroll
+      ng-if="isloadmore"
+      icon="ion-load-c"
+      on-infinite="loadMoreData()" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

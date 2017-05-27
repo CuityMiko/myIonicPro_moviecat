@@ -4,7 +4,9 @@
 angular.module('moviecatApp', ['ionic',
   'moviecatApp.config', //配置模块，控制不同平台机器的兼容性
   'moviecatApp.global', //全局配置文件
-  'moviecatApp.routes' //路由配置模块
+  'moviecatApp.routes', //路由配置模块
+  'moviecatApp.services.jsonp', //自定义一个跨域请求的Jsonp服务
+  'ionicLazyLoad' //ionic图片延迟加载
 ])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
