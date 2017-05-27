@@ -4,5 +4,6 @@
 angular.module('moviecatApp.config',[])
   .config(function($ionicConfigProvider){
     $ionicConfigProvider.platform.android.tabs.position("bottom");
-    $ionicConfigProvider.platform.ios.tabs.position("bottom")
+    $ionicConfigProvider.platform.ios.tabs.position("bottom");
+    $ionicConfigProvider.scrolling.jsScrolling(true);
   });

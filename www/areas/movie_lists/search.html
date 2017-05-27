@@ -4,7 +4,7 @@
       <a class="button button-icon icon ion-ios-arrow-back" href="javascript:window.history.back(-1);"></a>
       <label class="item-input-wrapper">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="text" placeholder="电影/导演/演员..." ng-model="content">
+        <input type="text" placeholder="搜索电影/导演/演员..." ng-model="content">
       </label>
     </div>
   </form>
@@ -18,8 +18,8 @@
       refreshing-text="刷新完毕"
       on-refresh="refreshMovieList()">
     </ion-refresher>
-    <div class="list">
-        <a class="item item-thumbnail-left" ng-href="#/movie/detail/{{movie.id}}" ng-repeat="movie in movies">
+    <ion-list>
+        <ion-item class="item item-thumbnail-left" ng-href="#/movie/detail/{{movie.id}}" ng-repeat="movie in movies">
           <img image-lazy-src="{{movie.images.small}}" image-lazy-loader="lines">
           <h2>{{movie.title}}</h2>
           <p>
@@ -42,8 +42,8 @@
             </span>
           </p>
           <span class="badge badge-assertive">{{movie.rating.average}}</span>
-        </a>
-    </div>
+        </ion-item>
+    </ion-list>
     <!--ion-infinite-scroll组件要放在ion-content底部-->
     <ion-infinite-scroll
       ng-if="isloadmore"
