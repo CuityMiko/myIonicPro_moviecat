@@ -29,3 +29,9 @@
   max-width: 80px;
   max-height: none;
 }
+
+#divlist body{
+  overflow-x:hidden;
+}
+
+
