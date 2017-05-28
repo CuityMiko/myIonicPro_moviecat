@@ -18,6 +18,7 @@ angular.module('moviecatApp.controllers.movie_lists',['moviecatApp.services.movi
     //结果内容
     $scope.title='';
     $scope.isresult=false;
+    $scope.total=0;
     //重置
     var reset=function(flag){
       if(flag<1){
@@ -33,6 +34,10 @@ angular.module('moviecatApp.controllers.movie_lists',['moviecatApp.services.movi
 
     //获取列表
     var getMovieList=function(flag){
+      // if($scope.total && ($scope.pageindex-1)*$scope.pagecount>=$scope.total){
+      //     $scope.isloadmore=false;
+      //     return;
+      // }
       //遮罩层
       $ionicLoading.show({
         template:'数据加载中...'
@@ -49,6 +54,7 @@ angular.module('moviecatApp.controllers.movie_lists',['moviecatApp.services.movi
       );
       promise.then((data)=>{
         if(data!=null && data.subjects.length>0){
+          $scope.total=data.total;
           $scope.title=`共${data.total}个有关“${$stateParams.q}”的结果`;
           $scope.isresult=true;
           if(flag>0){

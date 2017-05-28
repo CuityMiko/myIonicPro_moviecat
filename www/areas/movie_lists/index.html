@@ -1,4 +1,4 @@
-<ion-view id="divlist" view-title="电影列表">
+<ion-view id="divlist" view-title="电影列表" cache-view="false">
   <form ng-submit="search()">
     <div id="divSearch" class="bar bar-header item-input-inset">
       <label class="item-input-wrapper">
@@ -44,9 +44,7 @@
     <ion-infinite-scroll
       ng-if="isloadmore"
       icon="ion-load-c"
-      on-infinite="loadMoreData()" distance="5%">
-      <!--<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading...">
-     </ion-infinite-scroll-content>-->
+      on-infinite="loadMoreData()">
     </ion-infinite-scroll>
   </ion-content>
 </ion-view>
